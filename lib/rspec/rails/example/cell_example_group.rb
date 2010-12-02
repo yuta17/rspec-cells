@@ -76,100 +76,24 @@ module RSpec::Rails
 
     include RSpec::Rails::RailsExampleGroup
 
-    include ActionController::TestCase::Behavior
+    include Cell::TestCase::TestMethods
+    
+    
+    
     include RSpec::Rails::ViewRendering
     include RSpec::Rails::Matchers::RedirectTo
     include RSpec::Rails::Matchers::RenderTemplate
-    include RSpec::Rails::Matchers::RoutingMatchers
-    include RSpec::Rails::BrowserSimulators
-
-    webrat do
-      include Webrat::Matchers
-      include Webrat::Methods
-    end
-
-    capybara do
-      include Capybara
-    end
-
-    module ClassMethods
-      def controller_class
-        describes
-      end
-
-      # Supports a simple DSL for specifying behaviour of
-      # ApplicationController.  Creates an anonymous subclass of
-      # ApplicationController and evals the +body+ in that context. Also sets
-      # up implicit routes for this controller, that are separate from those
-      # defined in <tt>config/routes.rb</tt>.
-      #
-      # == Examples
-      #
-      #    describe ApplicationController do
-      #      controller do
-      #        def index
-      #          raise ApplicationController::AccessDenied
-      #        end
-      #      end
-      #
-      #      describe "handling AccessDenied exceptions" do
-      #        it "redirects to the /401.html page" do
-      #          get :index
-      #          response.should redirect_to("/401.html")
-      #        end
-      #      end
-      #    end
-      #
-      # If you would like to spec a subclass of ApplicationController, call
-      # controller like so:
-      #
-      #    controller(ApplicationControllerSubclass) do
-      #      # ....
-      #    end
-      #
-      # NOTICE: Due to Ruby 1.8 scoping rules in anoymous subclasses, constants
-      # defined in +ApplicationController+ must be fully qualified (e.g.
-      # ApplicationController::AccessDenied) in the block passed to the
-      # +controller+ method. Any instance methods, filters, etc, that are
-      # defined in +ApplicationController+, however, are accessible from within
-      # the block.
-      
-      def controller(base_class = ApplicationController, &body)
-      
-        metadata[:example_group][:describes] = Class.new(base_class, &body)
-        metadata[:example_group][:describes].singleton_class.class_eval do
-          def name
-            "StubResourcesController"
-          end
-        end
-
-        before do
-          @orig_routes, @routes = @routes, ActionDispatch::Routing::RouteSet.new
-          @routes.draw { resources :stub_resources }
-        end
-
-        after do
-          @routes = @orig_routes
-        end
-      end
-      
-      def render_cell(*)
-      
-      end
-    end
-
+    
     module InstanceMethods
       attr_reader :controller, :routes
-      
-      def render_cell(*)
-      end
     end
 
     included do
       metadata[:type] = :cell
-      before do
+      before do # called before every it.
         @routes = ::Rails.application.routes
         ActionController::Base.allow_forgery_protection = false
+        setup # defined in Cell::TestCase.
       end
       subject { controller }
     end
