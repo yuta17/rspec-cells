@@ -75,14 +75,20 @@ module RSpec::Rails
     extend RSpec::Rails::ModuleInclusion
 
     include RSpec::Rails::RailsExampleGroup
-
-    include Cell::TestCase::TestMethods
-    
-    
-    
+    include Cell::TestCase::TestMethods    
     include RSpec::Rails::ViewRendering
-    include RSpec::Rails::Matchers::RedirectTo
-    include RSpec::Rails::Matchers::RenderTemplate
+    include RSpec::Rails::BrowserSimulators
+    
+    webrat do
+      include Webrat::Matchers
+      include Webrat::Methods
+    end
+    
+    capybara do
+      include Capybara
+    end
+    
+    
     
     module InstanceMethods
       attr_reader :controller, :routes
