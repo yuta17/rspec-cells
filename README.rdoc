@@ -10,6 +10,18 @@ http://cells.rubyforge.org/
 
 = Installation
 
+== Rails 3
+
+Just add this line to your <tt>Gemfile</tt>:
+
+  gem 'rspec-cells'
+
+And add the following line to your <tt>spec_helper.rb</tt> (after the <tt>require "config/environment"</tt>):
+
+  require 'rspec/cells'
+
+== Rails 2
+
 If you’re using Rails 2.1, you can simply use "script/plugin".
 It will export all the code from GitHub into "vendor/plugins":
 
