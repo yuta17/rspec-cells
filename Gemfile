@@ -1,4 +1,5 @@
-source 'http://rubygems.org'
+source :gemcutter
 
-gem 'cells'
-gem 'rspec-rails'
+gem "rails", '~>3.0'
+gem "cells", '~>3.4'
+gem "rspec-rails"
