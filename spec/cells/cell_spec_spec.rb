@@ -14,18 +14,20 @@ module RSpecCells
 end
 
 module RSpec::Rails
+      
   describe CellExampleGroup do
-    #it { should be_included_in_files_in('./spec/controllers/') }
-    #it { should be_included_in_files_in('.\\spec\\controllers\\') }
-
     let(:group) do
       RSpec::Core::ExampleGroup.describe do
         include CellExampleGroup
       end
     end
-
-    it "includes routing matchers" do
-      group.should respond_to(:render_cell)
+    
+    it "adds :type => :cell to the metadata" do
+      group.metadata[:type].should eq(:cell)
+    end
+    
+    it "responds to #render_cell" do
+      group.new.should respond_to(:render_cell)
     end
   end
 end

@@ -1,6 +1,8 @@
 = Rspec Cells
 
-This plugin allows you to test your cells easily using RSpec. Basically, it adds a cells example group with a +#render_cell+ helper.
+<em>Spec your Cells.</em>
+
+This plugin allows you to test your cells easily using RSpec. Basically, it adds a cells example group with a <tt>#render_cell</tt> helper.
 
 Cells is Rails' popular {view components framework}[http://github.com/apotonick/cells].
 
@@ -14,7 +16,7 @@ This gem runs with RSpec2 and Rails 3.0, so just add it to your app's +Gemfile+.
 
 = Usage
 
-Put all your specs under <tt>spec/cells</tt> folder. Here is how a simple spec could look.
+Put all your specs under <tt>spec/cells</tt> folder. Here is how a simple spec could look like.
 
   describe PostsCell do
     render_views
@@ -24,6 +26,11 @@ Put all your specs under <tt>spec/cells</tt> folder. Here is how a simple spec c
     end
 
   end
+
+
+Run your examples with
+
+  rake spec:cells
 
 If you need more helpers, matchers and stuff, {just let us know}[http://cells.rubyforge.org/community.html].
 
