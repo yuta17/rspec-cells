@@ -1,0 +1,4 @@
+h2. 0.0.2
+ 
+h3. Bugfixes
+  * Using a Railtie to correctly load rspec-cells. Caused a dependency problem with capybara before. Thanks to Steve Sloan [CodeMonkeySteve] for fixing and Brandon Dimcheff [bdimcheff] for debugging.
