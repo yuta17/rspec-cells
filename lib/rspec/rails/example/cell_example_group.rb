@@ -2,26 +2,26 @@ module RSpec::Rails
   # Lets you call #render_cell in Rspec2. Move your cell specs to <tt>spec/cells/</tt>.
   module CellExampleGroup
     VERSION = "0.0.1"
-    
+
     extend ActiveSupport::Concern
     extend RSpec::Rails::ModuleInclusion
 
     include RSpec::Rails::RailsExampleGroup
-    include Cell::TestCase::TestMethods    
+    include Cell::TestCase::TestMethods
     include RSpec::Rails::ViewRendering
     include RSpec::Rails::BrowserSimulators
-    
+
     webrat do
       include Webrat::Matchers
       include Webrat::Methods
     end
-    
+
     capybara do
       include Capybara
     end
-    
-    
-    
+
+
+
     module InstanceMethods
       attr_reader :controller, :routes
     end
@@ -36,6 +36,11 @@ module RSpec::Rails
       subject { controller }
     end
 
-    RSpec.configure &include_self_when_dir_matches('spec','cells')  # adds a filter to Configuration that includes this module in matching groups.
+    # RSpec.configure &include_self_when_dir_matches('spec','cells')  # adds a filter to Configuration that includes this module in matching groups.
+
+    RSpec.configure do |c|
+      c.include self, :example_group => { :file_path => /spec\/cells/ }
+    end
+
   end
 end
