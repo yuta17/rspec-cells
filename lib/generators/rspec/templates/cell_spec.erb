@@ -1,0 +1,13 @@
+require 'spec_helper'
+
+describe <%= class_name %>Cell do
+  render_views
+  <% for state in actions %>
+  context "rendering <%= state %>" do
+    subject { render_cell(:<%= file_name %>, :<%= state %>) }
+
+    it { should have_selector("h1", :text => "<%= class_name %>#<%= state %>") }
+    it { should have_selector("p", :text => "Find me in app/cells/<%= file_name %>/<%= state %>.html") }
+  end
+  <% end %>
+end
