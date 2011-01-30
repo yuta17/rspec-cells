@@ -1,3 +1,5 @@
+require 'rspec/core/rake_task'
+
 namespace :spec do
   desc "Run the code examples in spec/cells"
   RSpec::Core::RakeTask.new("cells") do |t|
