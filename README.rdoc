@@ -19,8 +19,6 @@ This gem runs with RSpec2 and Rails 3.0, so just add it to your app's +Gemfile+.
 Put all your specs under <tt>spec/cells</tt> folder. Here is how a simple spec could look like.
 
   describe PostsCell do
-    render_views
-  
     it "should render the posts count" do
       render_cell(:posts, :count).should have_selector("p", :content => "4 posts!")
     end
