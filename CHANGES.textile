@@ -1,3 +1,9 @@
+h2. 0.0.4
+ 
+h3. Changes
+  * Use Capybara's string matchers in your specs now (if you like)!
+
+
 h2. 0.0.2
  
 h3. Bugfixes
