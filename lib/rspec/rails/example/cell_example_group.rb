@@ -19,9 +19,9 @@ module RSpec::Rails
       begin
         include Capybara::RSpec::StringMatchers
       rescue NameError
-        # Read more in the source file
-        require 'rspec_cells/capybara/string_matchers'
-        include RSpecCells::Capybara::StringMatchers
+        # do this till capybara 0.4.2 is out.
+        require 'rspec/cells/capybara/string_matchers'
+        include RSpec::Cells::Capybara::StringMatchers
       end
     end
 
@@ -41,9 +41,7 @@ module RSpec::Rails
       render_views
       subject { controller }
     end
-
-    # RSpec.configure &include_self_when_dir_matches('spec','cells')  # adds a filter to Configuration that includes this module in matching groups.
-
+    
     RSpec.configure do |c|
       c.include self, :example_group => { :file_path => /spec\/cells/ }
     end
