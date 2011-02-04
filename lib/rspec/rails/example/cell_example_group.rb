@@ -1,8 +1,6 @@
 module RSpec::Rails
   # Lets you call #render_cell in Rspec2. Move your cell specs to <tt>spec/cells/</tt>.
   module CellExampleGroup
-    VERSION = "0.0.1"
-
     extend ActiveSupport::Concern
     extend RSpec::Rails::ModuleInclusion
 
