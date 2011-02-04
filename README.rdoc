@@ -16,15 +16,35 @@ This gem runs with RSpec2 and Rails 3.0, so just add it to your app's +Gemfile+.
 
 = Usage
 
-Put all your specs under <tt>spec/cells</tt> folder. Here is how a simple spec could look like.
+Simply put all your specs in the <tt>spec/cells</tt> directory. 
+
+
+== Webrat
+
+Webrat matchers just work as you might have expected - here is how a simple spec could look like.
 
   describe PostsCell do
     it "should render the posts count" do
       render_cell(:posts, :count).should have_selector("p", :content => "4 posts!")
     end
-
   end
 
+== Capybara
+
+If you want Capybara's string matchers be sure to bundle at least capybara +0.4.1+ in your Gemfile.
+
+  gem "capybara", "~> 0.4.1"
+
+You can then use capybara's matchers in your cell spec.
+
+ describe PostsCell do
+    it "should render the posts count" do
+      render_cell(:posts, :box).should have_css("div#widget h3")
+    end
+  end
+
+  
+== Running the specs
 
 Run your examples with
 
@@ -32,6 +52,9 @@ Run your examples with
 
 If you need more helpers, matchers and stuff, {just let us know}[http://cells.rubyforge.org/community.html].
 
+== Contributors
+
+* Jorge Calás Lozano <calas@qvitta.net> (Cleanup, capybara string matchers)
 
 == LICENSE
 
