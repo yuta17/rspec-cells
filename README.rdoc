@@ -16,8 +16,11 @@ This gem runs with RSpec2 and Rails 3.0, so just add it to your app's +Gemfile+.
 
 = Usage
 
-Simply put all your specs in the <tt>spec/cells</tt> directory. 
+Simply put all your specs in the <tt>spec/cells</tt> directory. However, let the cell generator do that for you!
+  
+  rails g cell blog_post show -t rspec
 
+will create an exemplary <tt>spec/cells/blog_post_cell_spec.rb</tt> for you.
 
 == Webrat
 
