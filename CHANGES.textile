@@ -1,3 +1,10 @@
+h2. 0.0.5
+ 
+h3. Changes
+  * Works with RSpec-2.6 now, too.
+  * We no longer provide our own Capybara string matchers but delegate to @Capybara.string@. If you ever used the @==@ equality check, this won't work anymore. As a tradeoff, you get all string matchers Capybara comes up with, making rspec-cells forward-compatible.
+
+
 h2. 0.0.4
  
 h3. Changes
