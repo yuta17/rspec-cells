@@ -2,6 +2,8 @@
 
 <em>Spec your Cells.</em>
 
+{<img src="https://secure.travis-ci.org/apotonick/rspec-cells.png" />}[http://travis-ci.org/apotonick/rspec-cells]
+
 This plugin allows you to test your cells easily using RSpec. Basically, it adds a cells example group with a <tt>#render_cell</tt> helper.
 
 Cells is Rails' popular {view components framework}[http://github.com/apotonick/cells].
