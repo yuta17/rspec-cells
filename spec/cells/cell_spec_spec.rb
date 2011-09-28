@@ -1,4 +1,12 @@
 require 'spec_helper'
+require 'cells'
+
+class DummyCell < Cell::Base
+  def show
+    "I'm Dummy."
+  end
+end
+
 
 module RSpec::Rails
       
@@ -14,7 +22,7 @@ module RSpec::Rails
     end
     
     it "responds to #render_cell" do
-      group.new.should respond_to(:render_cell)
+      group.new.render_cell(:dummy, :show).should == "I'm Dummy."
     end
   end
 end

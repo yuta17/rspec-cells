@@ -6,7 +6,6 @@ module RSpec::Rails
 
     include RSpec::Rails::RailsExampleGroup
     include Cell::TestCase::TestMethods
-    include RSpec::Rails::ViewRendering
 
     if defined?(Webrat)
       include Webrat::Matchers
@@ -52,7 +51,6 @@ module RSpec::Rails
       end
 
       # we always render views in rspec-cells, so turn it on.
-      render_views
       subject { controller }
     end
 
