@@ -5,6 +5,10 @@ class DummyCell < Cell::Base
   def show
     "I'm Dummy."
   end
+  
+  def update(what)
+    "Updating #{what}."
+  end
 end
 
 
@@ -20,9 +24,19 @@ module RSpec::Rails
     it "adds :type => :cell to the metadata" do
       group.metadata[:type].should eq(:cell)
     end
-
-    it "responds to #render_cell" do
-      group.new.render_cell(:dummy, :show).should == "I'm Dummy."
+    
+    describe "#render_cell" do
+      it "renders a state" do
+        group.new.render_cell(:dummy, :show).should == "I'm Dummy."
+      end
+      
+      it "allows passing state args" do
+        group.new.render_cell(:dummy, :update, "this").should == "Updating this."
+      end
+    end
+    
+    it "responds to #cell" do
+      group.new.cell(:dummy).should be_kind_of(DummyCell)
     end
   end
 end
