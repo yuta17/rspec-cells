@@ -6,6 +6,7 @@ module RSpec::Rails
 
     include RSpec::Rails::RailsExampleGroup
     include Cell::TestCase::TestMethods
+    include ActionController::UrlFor
 
     if defined?(Webrat)
       include Webrat::Matchers
