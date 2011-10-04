@@ -1,3 +1,8 @@
+h2. 0.1.0
+ 
+h3. Changes
+  * Removed @ViewAssigns@. Maintenance Release.
+
 h2. 0.0.5
  
 h3. Changes
