@@ -1,3 +1,4 @@
+require "spec_helper"
 require "generators/rspec/cell_generator"
 
 describe Rspec::Generators::CellGenerator do
