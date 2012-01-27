@@ -66,7 +66,7 @@ You can then use capybara's matchers in your cell spec.
     end
   end
 
-  You can see all capybara matchers and finders here: http://rubydoc.info/github/jnicklas/capybara/master/Capybara/Node/Simple
+You can see all capybara matchers and finders {here}[http://rubydoc.info/github/jnicklas/capybara/master/Capybara/Node/Simple].
 
 == Running the specs
 
