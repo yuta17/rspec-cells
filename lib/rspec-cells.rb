@@ -4,10 +4,14 @@ module RSpec
       rake_tasks do
         load "rspec/cells/tasks.rake"
       end
-      
+
       initializer 'cells.rspec' do |app|
         require 'rspec/cells'
       end
     end
   end
+end
+
+RSpec.configure do |c|
+  c.include self, :example_group => { :file_path => /spec\/cells/ }
 end
