@@ -62,3 +62,7 @@ module RSpec::Rails
     end
   end
 end
+
+RSpec.configure do |c|
+  c.include RSpec::Rails::CellExampleGroup, :example_group => { :file_path => /spec\/cells/ }
+end

@@ -11,7 +11,3 @@ module RSpec
     end
   end
 end
-
-RSpec.configure do |c|
-  c.include self, :example_group => { :file_path => /spec\/cells/ }
-end
