@@ -1,3 +1,7 @@
+h2. 0.1.5
+
+* Fixed generated test for namespaced cells. 
+
 h2. 0.1.4
 
 * Another maintenance release since we broke the gem with the last release :-)
