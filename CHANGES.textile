@@ -1,3 +1,7 @@
+h2. 0.1.6
+
+* Minor internal fixes.
+
 h2. 0.1.5
 
 * Fixed generated test for namespaced cells. 
