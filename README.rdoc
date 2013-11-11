@@ -10,7 +10,7 @@ Cells is Rails' popular {view components framework}[http://github.com/apotonick/
 
 = Installation
 
-This gem runs with RSpec2 and Rails 3.x, so just add it to your app's +Gemfile+.
+This gem runs with RSpec2 and Rails >= 3.x, so just add it to your app's +Gemfile+.
 
   group :test do
     gem "rspec-cells"
