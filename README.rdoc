@@ -24,15 +24,25 @@ Simply put all your specs in the <tt>spec/cells</tt> directory. However, let the
 
 will create an exemplary <tt>spec/cells/blog_post_cell_spec.rb</tt> for you.
 
-== Webrat
 
-Webrat matchers just work as you might have expected - here is how a simple spec could look like.
+== API
 
-  describe PostsCell do
-    it "should render the posts count" do
-      render_cell(:posts, :count).should have_selector("p", :content => "4 posts!")
-    end
+In your specs you can use +render_cell+ to assert the rendered markup (or whatever your state is supposed to do). This goes fine with Webrat matchers.
+
+  it "renders posts count" do
+    render_cell(:posts, :count).should have_selector("p", :content => "4 posts!")
   end
+
+You can create a cell instance using the +cell+ method, and then render afterwards. This is helpful when you're planning to stub things or if you need to pass arguments to the cell constructor.
+
+  it "renders empty posts list" do
+    posts = cell(:posts)
+    posts.stub(:recent_posts).and_return([])
+
+    posts.render_state(:count).should have_selector("p", :content => "No posts!")
+  end
+
+After preparing the instance you can use +render_state+ for triggering the state.
 
 == Capybara
 
