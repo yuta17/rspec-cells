@@ -38,12 +38,12 @@ module RSpec::Rails
       end
 
       def cell(*args)
-        CapybaraOutputCell.new(super)
+        super.extend(RenderStateWithCapybaraString)
       end
 
-      class CapybaraOutputCell < SimpleDelegator
+      module RenderStateWithCapybaraString
         def render_state(*args)
-          Capybara.string(__getobj__.render_state(*args))
+          Capybara.string(super)
         end
       end
     end
