@@ -3,7 +3,7 @@ require 'cells'
 
 class DummyCell < Cell::Base
   def show
-    "I'm Dummy."
+    "<p>I'm Dummy.</p>"
   end
 
   def update(what)
@@ -27,7 +27,7 @@ module RSpec::Rails
 
     describe "#render_cell" do
       it "renders a state" do
-        group.new.render_cell(:dummy, :show).should == "I'm Dummy."
+        group.new.render_cell(:dummy, :show).should == "<p>I'm Dummy.</p>"
       end
 
       it "allows passing state args" do
@@ -37,6 +37,10 @@ module RSpec::Rails
 
     it "responds to #cell" do
       group.new.cell(:dummy).should be_kind_of(DummyCell)
+    end
+
+    it "allows using matchers with #render_state" do
+      cell(:dummy).render_state(:show).should have_selector("p")
     end
 
     context "as a test writer" do

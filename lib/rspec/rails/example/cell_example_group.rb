@@ -36,6 +36,16 @@ module RSpec::Rails
       def render_cell(*args)
         Capybara.string super
       end
+
+      def cell(*args)
+        CapybaraOutputCell.new(super)
+      end
+
+      class CapybaraOutputCell < SimpleDelegator
+        def render_state(*args)
+          Capybara.string(__getobj__.render_state(*args))
+        end
+      end
     end
 
     attr_reader :controller, :routes
