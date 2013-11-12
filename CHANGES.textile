@@ -1,3 +1,7 @@
+h2. 0.1.9
+
+* Override #render_state in specs using module in favour of Decorator (broke stubbing).
+
 h2. 0.1.8
 
 * Make @render_state@ return a Capybara string so it gets assertable.
