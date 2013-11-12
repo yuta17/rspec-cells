@@ -1,10 +1,16 @@
+h2. 0.1.8
+
+* Make @render_state@ return a Capybara string so it gets assertable.
+
+h2. 0.1.7
+
 h2. 0.1.6
 
 * Minor internal fixes.
 
 h2. 0.1.5
 
-* Fixed generated test for namespaced cells. 
+* Fixed generated test for namespaced cells.
 
 h2. 0.1.4
 
@@ -23,24 +29,24 @@ h2. 0.1.1
 * Fixed indentation in generator. Thanks to Richard Huang [flyerhzm].
 
 h2. 0.1.0
- 
+
 h3. Changes
   * Removed @ViewAssigns@. Maintenance Release.
 
 h2. 0.0.5
- 
+
 h3. Changes
   * Works with RSpec-2.6 now, too.
   * We no longer provide our own Capybara string matchers but delegate to @Capybara.string@. If you ever used the @==@ equality check, this won't work anymore. As a tradeoff, you get all string matchers Capybara comes up with, making rspec-cells forward-compatible.
 
 
 h2. 0.0.4
- 
+
 h3. Changes
   * Use Capybara's string matchers in your specs now (if you like)!
 
 
 h2. 0.0.2
- 
+
 h3. Bugfixes
   * Using a Railtie to correctly load rspec-cells. Caused a dependency problem with capybara before. Thanks to Steve Sloan [CodeMonkeySteve] for fixing and Brandon Dimcheff [bdimcheff] for debugging.

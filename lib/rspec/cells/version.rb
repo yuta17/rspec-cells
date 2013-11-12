@@ -1,6 +1,6 @@
-module RSpec # :nodoc:
-  module Cells # :nodoc:
-    VERSION = '0.1.7'
+module RSpec
+  module Cells
+    VERSION = '0.1.8'
   end
 end
 
