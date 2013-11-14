@@ -11,6 +11,7 @@ Gem::Specification.new do |s|
   s.homepage    = "http://rubygems.org/gems/rspec-cells"
   s.summary     = %q{Spec your cells.}
   s.description = %q{Use render_cell in your specs.}
+  s.license     = 'MIT'
 
   s.rubyforge_project = "rspec-cells"
 
