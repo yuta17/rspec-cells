@@ -51,6 +51,9 @@ If you want Capybara's string matchers be sure to bundle at least capybara +0.4.
   group :development, :test do
     gem "capybara", "~> 0.4.1"
   end
+
+In order to make the cells test generator work properly, capybara needs to be in both groups.
+
   
 You can then use capybara's matchers in your cell spec.
 
