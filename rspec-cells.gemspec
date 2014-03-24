@@ -1,4 +1,3 @@
-# -*- encoding: utf-8 -*-
 $:.unshift File.expand_path("../lib", __FILE__)
 require "rspec/cells/version"
 
@@ -20,7 +19,7 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
-  s.add_runtime_dependency(%q<railties>, ['>= 3.0', '< 4.1'])
-  s.add_runtime_dependency(%q<rspec-rails>)
-  s.add_runtime_dependency(%q<cells>)
+  s.add_runtime_dependency "railties",    ">= 3.0"
+  s.add_runtime_dependency "rspec-rails", ">= 2.2.0"
+  s.add_runtime_dependency "cells",       ">= 3.4.0"
 end
