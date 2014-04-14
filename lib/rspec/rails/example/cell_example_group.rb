@@ -38,12 +38,21 @@ module RSpec::Rails
       end
 
       def cell(*args)
-        super.extend(RenderStateWithCapybaraString)
+        Content.new(super)
       end
 
-      module RenderStateWithCapybaraString
-        def render_state(*args)
-          Capybara.string(super)
+
+      # TODO: test if view model cell wrapping works (and normal dialect)
+      class Content
+        def initialize(cell)
+          @cell = cell
+        end
+
+        def method_missing(*args)
+          content = @cell.send(*args)
+
+          return Capybara.string(content) if content.is_a?(String)
+          content
         end
       end
     end
