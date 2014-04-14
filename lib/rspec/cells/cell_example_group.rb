@@ -43,6 +43,7 @@ module RSpec::Rails
 
 
       # TODO: test if view model cell wrapping works (and normal dialect)
+      # test with both webrick and capybara
       class Content
         def initialize(cell)
           @cell = cell
