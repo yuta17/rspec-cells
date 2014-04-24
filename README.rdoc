@@ -27,6 +27,8 @@ will create an exemplary <tt>spec/cells/blog_post_cell_spec.rb</tt> for you.
 
 == API
 
+=== Old API
+
 In your specs you can use +render_cell+ to assert the rendered markup (or whatever your state is supposed to do). This goes fine with Webrat matchers.
 
   it "renders posts count" do
@@ -44,6 +46,18 @@ You can create a cell instance using the +cell+ method, and then render afterwar
 
 After preparing the instance you can use +render_state+ for triggering the state.
 
+
+=== View Models
+
+With the introduction of cells [view models]() you get a slightly different API for your specs (which is identical to your app's one).
+
+  it "renders empty posts list" do
+    posts = cell(:posts).count.should should have_css "#comment_new .flag", visible: true)
+  end
+
+It's pretty simple, you use `#cell` to instantiate a view model instance and then call the state method on it.
+
+
 == Capybara
 
 If you want Capybara's string matchers be sure to bundle at least capybara +0.4.1+ in your Gemfile.
@@ -54,7 +68,7 @@ If you want Capybara's string matchers be sure to bundle at least capybara +0.4.
 
 In order to make the cells test generator work properly, capybara needs to be in both groups.
 
-  
+
 You can then use capybara's matchers in your cell spec.
 
   describe PostsCell do
