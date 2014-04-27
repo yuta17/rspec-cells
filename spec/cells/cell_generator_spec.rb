@@ -30,14 +30,6 @@ describe Rspec::Generators::CellGenerator do
       Object.send(:remove_const, :"Capybara")
     end
 
-    it 'creates respond_to states specs' do
-      test.assert_file "spec/cells/twitter_cell_spec.rb", t('context "cell instance" do')
-      test.assert_file "spec/cells/twitter_cell_spec.rb", t('subject { cell(:twitter) }')
-      test.assert_file "spec/cells/twitter_cell_spec.rb", t('it { should respond_to(:display) }')
-      test.assert_file "spec/cells/twitter_cell_spec.rb", t('it { should respond_to(:form) }')
-      test.assert_file "spec/cells/twitter_cell_spec.rb", t('end')
-    end
-
     it "creates widget spec" do
       test.assert_file "spec/cells/twitter_cell_spec.rb", t("require 'spec_helper'")
       test.assert_file "spec/cells/twitter_cell_spec.rb", t('describe TwitterCell do')
@@ -69,14 +61,6 @@ describe Rspec::Generators::CellGenerator do
 
     after(:all) do
       FileUtils.rm_rf(DESTINATION_ROOT) # Cleanup after we are done testing
-    end
-
-    it 'creates respond_to states specs' do
-      test.assert_file "spec/cells/twitter_cell_spec.rb", t('context "cell instance" do')
-      test.assert_file "spec/cells/twitter_cell_spec.rb", t('subject { cell(:twitter) }')
-      test.assert_file "spec/cells/twitter_cell_spec.rb", t('it { should respond_to(:display) }')
-      test.assert_file "spec/cells/twitter_cell_spec.rb", t('it { should respond_to(:form) }')
-      test.assert_file "spec/cells/twitter_cell_spec.rb", t('end')
     end
 
     it "creates widget spec" do
@@ -114,14 +98,6 @@ describe Rspec::Generators::CellGenerator do
     end
 
     GENERATED_FILE = "spec/cells/forum/comment_cell_spec.rb"
-
-    it 'creates respond_to states specs' do
-      test.assert_file GENERATED_FILE, t('context "cell instance" do')
-      test.assert_file GENERATED_FILE, t('subject { cell("forum/comment") }')
-      test.assert_file GENERATED_FILE, t('it { should respond_to(:display) }')
-      test.assert_file GENERATED_FILE, t('it { should respond_to(:form) }')
-      test.assert_file GENERATED_FILE, t('end')
-    end
 
     it "creates widget spec" do
       test.assert_file GENERATED_FILE, t("require 'spec_helper'")

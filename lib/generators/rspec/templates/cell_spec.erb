@@ -2,14 +2,6 @@ require 'spec_helper'
 
 describe <%= class_name %>Cell do
 
-  context "cell instance" do
-    subject { cell(<%= cell_name %>) }
-
-    <%- for state in actions -%>
-    it { should respond_to(:<%= state %>) }
-    <%- end -%>
-  end
-
   context "cell rendering" do
   <%- actions.each_with_index do |state, index| -%>
     context "rendering <%= state %>" do
