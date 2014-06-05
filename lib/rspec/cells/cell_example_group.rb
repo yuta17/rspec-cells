@@ -84,5 +84,9 @@ module RSpec::Rails
 end
 
 RSpec.configure do |c|
-  c.include RSpec::Rails::CellExampleGroup, :example_group => { :file_path => /spec\/cells/ }
+  if RSpec::Core::Version::STRING.starts_with?("3")
+    c.include RSpec::Rails::CellExampleGroup, :file_path => /spec\/cells/
+  else
+    c.include RSpec::Rails::CellExampleGroup, :example_group => { :file_path => /spec\/cells/ }
+  end
 end
