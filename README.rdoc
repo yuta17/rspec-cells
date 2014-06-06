@@ -12,7 +12,7 @@ Cells is Rails' popular {view components framework}[http://github.com/apotonick/
 
 This gem runs with RSpec2 and Rails >= 3.x, so just add it to your app's +Gemfile+.
 
-  group :test do
+  group :development, :test do
     gem "rspec-cells"
   end
 
@@ -32,7 +32,7 @@ will create an exemplary <tt>spec/cells/blog_post_cell_spec.rb</tt> for you.
 In your specs you can use +render_cell+ to assert the rendered markup (or whatever your state is supposed to do). This goes fine with Webrat matchers.
 
   it "renders posts count" do
-    render_cell(:posts, :count).should have_selector("p", :content => "4 posts!")
+    expect(render_cell(:posts, :count)).to have_selector("p", :content => "4 posts!")
   end
 
 You can create a cell instance using the +cell+ method, and then render afterwards. This is helpful when you're planning to stub things or if you need to pass arguments to the cell constructor.
@@ -41,7 +41,7 @@ You can create a cell instance using the +cell+ method, and then render afterwar
     posts = cell(:posts)
     posts.stub(:recent_posts).and_return([])
 
-    posts.render_state(:count).should have_selector("p", :content => "No posts!")
+    expect(posts.render_state(:count)).to have_selector("p", :content => "No posts!")
   end
 
 After preparing the instance you can use +render_state+ for triggering the state.
@@ -52,7 +52,7 @@ After preparing the instance you can use +render_state+ for triggering the state
 With the introduction of cells [view models](https://github.com/apotonick/cells#view-models) you get a slightly different API for your specs (which is identical to your app's one).
 
   it "renders empty posts list" do
-    posts = cell(:posts).count.should should have_css "#comment_new .flag", visible: true)
+    expect(cell(:posts).count.to be_zero
   end
 
 It's pretty simple, you use `#cell` to instantiate a view model instance and then call the state method on it.
@@ -76,22 +76,22 @@ You can then use capybara's matchers in your cell spec.
       let(:search) { render_cell(:posts, :search) }
 
       it "should have a search field" do
-        search.should have_field("Search by Title")
+        expect(search).to have_field("Search by Title")
       end
 
       it "should have a search button" do
-        search.should have_button("Search")
+        expect(search).to have_button("Search")
       end
     end
 
     describe "latest posts" do
       subject { render_cell(:posts, :latest) }
 
-      it { should have_css("h3.title", :text => "Latest Posts") }
-      it { should have_table("latest_posts") }
-      it { should have_link("View all Posts") }
-      it { should_not have_button("Create Post") }
-      it { should_not have_field("Search by Title") }
+      it { is_expected.to have_css("h3.title", :text => "Latest Posts") }
+      it { is_expected.to have_table("latest_posts") }
+      it { is_expected.to have_link("View all Posts") }
+      it { is_expected.to_not have_button("Create Post") }
+      it { is_expected.to_not have_field("Search by Title") }
     end
   end
 

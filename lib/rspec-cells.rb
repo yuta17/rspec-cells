@@ -1,3 +1,4 @@
+require 'rails/railtie'
 module RSpec
   module Cells
     class Railtie < ::Rails::Railtie

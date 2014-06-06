@@ -40,16 +40,16 @@ describe Rspec::Generators::CellGenerator do
     it 'creates display state' do
       test.assert_file "spec/cells/twitter_cell_spec.rb", t('context "rendering display" do')
       test.assert_file "spec/cells/twitter_cell_spec.rb", t('subject { render_cell(:twitter, :display) }')
-      test.assert_file "spec/cells/twitter_cell_spec.rb", t('it { should have_selector("h1", :text => "Twitter#display") }')
-      test.assert_file "spec/cells/twitter_cell_spec.rb", t('it { should have_selector("p", :text => "Find me in app/cells/twitter/display.html") }')
+      test.assert_file "spec/cells/twitter_cell_spec.rb", t('it { is_expected.to have_selector("h1", :text => "Twitter#display") }')
+      test.assert_file "spec/cells/twitter_cell_spec.rb", t('it { is_expected.to have_selector("p", :text => "Find me in app/cells/twitter/display.html") }')
       test.assert_file "spec/cells/twitter_cell_spec.rb", t('end')
     end
 
     it 'creates form state' do
       test.assert_file "spec/cells/twitter_cell_spec.rb", t('context "rendering form" do')
       test.assert_file "spec/cells/twitter_cell_spec.rb", t('subject { render_cell(:twitter, :form) }')
-      test.assert_file "spec/cells/twitter_cell_spec.rb", t('it { should have_selector("h1", :text => "Twitter#form") }')
-      test.assert_file "spec/cells/twitter_cell_spec.rb", t('it { should have_selector("p", :text => "Find me in app/cells/twitter/form.html") }')
+      test.assert_file "spec/cells/twitter_cell_spec.rb", t('it { is_expected.to have_selector("h1", :text => "Twitter#form") }')
+      test.assert_file "spec/cells/twitter_cell_spec.rb", t('it { is_expected.to have_selector("p", :text => "Find me in app/cells/twitter/form.html") }')
       test.assert_file "spec/cells/twitter_cell_spec.rb", t('end')
     end
   end
@@ -73,16 +73,16 @@ describe Rspec::Generators::CellGenerator do
     it 'creates display state' do
       test.assert_file "spec/cells/twitter_cell_spec.rb", t('context "rendering display" do')
       test.assert_file "spec/cells/twitter_cell_spec.rb", t('subject { render_cell(:twitter, :display) }')
-      test.assert_file "spec/cells/twitter_cell_spec.rb", t('it { should include "Twitter#display" }')
-      test.assert_file "spec/cells/twitter_cell_spec.rb", t('it { should include "Find me in app/cells/twitter/display.html" }')
+      test.assert_file "spec/cells/twitter_cell_spec.rb", t('it { is_expected.to include "Twitter#display" }')
+      test.assert_file "spec/cells/twitter_cell_spec.rb", t('it { is_expected.to include "Find me in app/cells/twitter/display.html" }')
       test.assert_file "spec/cells/twitter_cell_spec.rb", t('end')
     end
 
     it 'creates form state' do
       test.assert_file "spec/cells/twitter_cell_spec.rb", t('context "rendering form" do')
       test.assert_file "spec/cells/twitter_cell_spec.rb", t('subject { render_cell(:twitter, :form) }')
-      test.assert_file "spec/cells/twitter_cell_spec.rb", t('it { should include "Twitter#form" }')
-      test.assert_file "spec/cells/twitter_cell_spec.rb", t('it { should include "Find me in app/cells/twitter/form.html" }')
+      test.assert_file "spec/cells/twitter_cell_spec.rb", t('it { is_expected.to include "Twitter#form" }')
+      test.assert_file "spec/cells/twitter_cell_spec.rb", t('it { is_expected.to include "Find me in app/cells/twitter/form.html" }')
       test.assert_file "spec/cells/twitter_cell_spec.rb", t('end')
     end
   end
@@ -109,16 +109,16 @@ describe Rspec::Generators::CellGenerator do
     it 'creates display state' do
       test.assert_file GENERATED_FILE, t('context "rendering display" do')
       test.assert_file GENERATED_FILE, t('subject { render_cell("forum/comment", :display) }')
-      test.assert_file GENERATED_FILE, t('it { should include "Forum::Comment#display" }')
-      test.assert_file GENERATED_FILE, t('it { should include "Find me in app/cells/forum/comment/display.html" }')
+      test.assert_file GENERATED_FILE, t('it { is_expected.to include "Forum::Comment#display" }')
+      test.assert_file GENERATED_FILE, t('it { is_expected.to include "Find me in app/cells/forum/comment/display.html" }')
       test.assert_file GENERATED_FILE, t('end')
     end
 
     it 'creates form state' do
       test.assert_file GENERATED_FILE, t('context "rendering form" do')
       test.assert_file GENERATED_FILE, t('subject { render_cell("forum/comment", :form) }')
-      test.assert_file GENERATED_FILE, t('it { should include "Forum::Comment#form" }')
-      test.assert_file GENERATED_FILE, t('it { should include "Find me in app/cells/forum/comment/form.html" }')
+      test.assert_file GENERATED_FILE, t('it { is_expected.to include "Forum::Comment#form" }')
+      test.assert_file GENERATED_FILE, t('it { is_expected.to include "Find me in app/cells/forum/comment/form.html" }')
       test.assert_file GENERATED_FILE, t('end')
     end
   end
