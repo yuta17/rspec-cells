@@ -1,5 +1,5 @@
 .idea/
-Gemfile.lock
+*.lock
 *.gem
 /.rvmrc
 spec/tmp
