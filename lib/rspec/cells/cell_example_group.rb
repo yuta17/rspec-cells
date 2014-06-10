@@ -7,16 +7,15 @@ module RSpec::Rails
     include Cell::TestCase::TestMethods
     include ActionController::UrlFor
 
-    if defined?(Webrat)
-      include Webrat::Matchers
-      include Webrat::Methods
-    end
+    if defined?(::Webrat)
+      include ::Webrat::Matchers
+      include ::Webrat::Methods
 
-    if defined?(Capybara)
+    elsif defined?(::Capybara)
       begin
-        include Capybara::DSL
+        include ::Capybara::DSL
       rescue NameError
-        include Capybara
+        include ::Capybara
       end
 
       # Overwrite to wrap render_cell into a Capybara custom string with a
@@ -33,11 +32,11 @@ module RSpec::Rails
       # That expose all the methods from the following capybara modules:
       #   - http://rubydoc.info/github/jnicklas/capybara/master/Capybara/Node/Matchers
       #   - http://rubydoc.info/github/jnicklas/capybara/master/Capybara/Node/Finders
-      def render_cell(*args)
+      def render_cell(*)
         Capybara.string super
       end
 
-      def cell(*args)
+      def cell(*)
         Content.new(super)
       end
 
@@ -84,9 +83,6 @@ module RSpec::Rails
 end
 
 RSpec.configure do |c|
-  if RSpec::Core::Version::STRING.starts_with?("3")
-    c.include RSpec::Rails::CellExampleGroup, :file_path => /spec\/cells/
-  else
-    c.include RSpec::Rails::CellExampleGroup, :example_group => { :file_path => /spec\/cells/ }
-  end
+  c.include RSpec::Rails::CellExampleGroup, :file_path => /spec\/cells/
+  c.include RSpec::Rails::CellExampleGroup, :type => :cell
 end
