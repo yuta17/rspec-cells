@@ -1,3 +1,7 @@
+h2. 0.2.0
+
+* rspec-cells only works with rspec >= 2.99 and uses the expect syntax. Thanks to @seuros for his help.
+
 h2. 0.1.12
 
 * Remove `respond_to` tests from generated tests.
