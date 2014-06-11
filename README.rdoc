@@ -112,30 +112,7 @@ By default your code for caching code is not run if you set <tt>ActionController
 That's a reasonable default but you might want to increase coverage by running caching code at least once.
 Here is an example:
 
-  module CellCaching
-    extend ActiveSupport::Concern
-  
-    module ClassMethods
-      def enable_cell_caching!
-        before :each do
-          ActionController::Base.perform_caching = true
-        end
-        after :each do
-          ActionController::Base.perform_caching = false
-        end
-      end
-  
-      def disable_cell_caching!
-        before :each do
-          ActionController::Base.perform_caching = false
-        end
-      end
-    end
-  end
-then
   describe SomeCell do
-    include CellCaching
-    
     describe 'caching' do
       enable_cell_caching!
       # Code for testing...
