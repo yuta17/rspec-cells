@@ -4,6 +4,6 @@ source "http://rubygems.org"
 
 gem "rails", "~> 3.2"
 gem "appraisal"
-gem "rspec-rails", "~> 2.14"
+gem "rspec-rails", "~> 2.14.0"
 
 gemspec :path => "../"
