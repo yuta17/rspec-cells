@@ -7,7 +7,7 @@ describe <%= class_name %>Cell, type: :cell do
     context 'rendering <%= state %>' do
       subject { render_cell(<%= cell_name %>, :<%= state %>) }
 
-      <%- if defined?(Capybara) -%>
+      <%- if defined?(::Capybara) -%>
       it { is_expected.to have_selector('h1', text: '<%= class_name %>#<%= state %>') }
       it { is_expected.to have_selector('p', text: 'Find me in app/cells/<%= file_path %>/<%= state %>.html') }
       <%- else -%>
