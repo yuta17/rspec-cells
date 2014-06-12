@@ -123,6 +123,8 @@ Here is an example:
 == Contributors
 
 * Jorge Calás Lozano <calas@qvitta.net> (Cleanup, capybara string matchers)
+* Abdelkader Boudih <@seuros>
+*
 
 == LICENSE
 
