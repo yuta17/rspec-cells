@@ -17,14 +17,10 @@ class SongCell < Cell::ViewModel
   end
 end
 
-
-module RSpec::Rails
-
-  describe CellExampleGroup do
-    let(:group) do
-      RSpec::Core::ExampleGroup.describe do
-        include CellExampleGroup
-      end
+Rspec.describe RSpec::Cells::ExampleGroup do
+  let(:group) do
+    RSpec::Core::ExampleGroup.describe do
+      include RSpec::Cells::ExampleGroup
     end
 
     it "adds :type => :cell to the metadata" do
@@ -39,19 +35,6 @@ module RSpec::Rails
       it "allows passing state args" do
         expect(group.new.render_cell(:dummy, :update, "this")).to eq('Updating this.')
       end
-
-      # view model
-      # call state
-      it "allows rendering view model" do
-        expect(group.new.cell(:song, "Hangover").show).to eq("Hangover!")
-      end
-
-      # stubbing #cell
-      it do
-        cell = group.new.cell(:song, "Hangover")
-        cell.stub(:model => "Swarming Goblets")
-        expect(cell.show).to eq("Swarming Goblets!")
-      end
     end
 
     it "responds to #cell" do
@@ -63,22 +46,25 @@ module RSpec::Rails
     #   expect(cell(:dummy).render_state(:show)).to have_selector("p")
     # end
 
-    context "as a test writer" do
-      include CellExampleGroup
 
-      it "should support _path helpers from the controller" do
-        # We have to stub include so that things determine the route exists.
-        allow(Rails.application.routes.named_routes.helpers).to receive(:include?).and_return(true)
-        expect(@controller).to receive(:test_path).at_least(:once)
-        test_path
-      end
 
-      it "should support polymorphic_path from the controller" do
-        # We have to stub include so that things determine the route exists.
-        allow(Rails.application.routes.named_routes.helpers).to receive(:include?).and_return(true)
-        expect(@controller).to receive(:test_path).at_least(:once)
-        polymorphic_path(:test)
-      end
+  context "as a test writer" do
+    include RSpec::Cells::ExampleGroup
+
+    it "should support _path helpers from the controller" do
+      # We have to stub include so that things determine the route exists.
+      allow(Rails.application.routes.named_routes.helpers).to receive(:include?).and_return(true)
+      expect(@controller).to receive(:test_path).at_least(:once)
+      test_path
+    end
+
+    it "should support polymorphic_path from the controller" do
+      # We have to stub include so that things determine the route exists.
+      allow(Rails.application.routes.named_routes.helpers).to receive(:include?).and_return(true)
+      expect(@controller).to receive(:test_path).at_least(:once)
+      polymorphic_path(:test)
+    end
+
 
     end
   end
