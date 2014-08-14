@@ -1,3 +1,7 @@
+h2. 0.2.2
+
+* Allow using `cell.stub(..)` with capybara.
+
 h2. 0.2.1
 
 * Relaxed rspec dependency to >= 2.14.
