@@ -54,6 +54,11 @@ module RSpec::Rails
           return Capybara.string(content) if content.is_a?(String)
           content
         end
+
+        # TODO: test that properly.
+        def stub(*args)
+          @cell.stub(*args)
+        end
       end
     end
 
