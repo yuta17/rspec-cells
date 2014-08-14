@@ -11,6 +11,12 @@ class DummyCell < Cell::Base
   end
 end
 
+class SongCell < Cell::ViewModel
+  def show
+    "#{model}!"
+  end
+end
+
 
 module RSpec::Rails
 
@@ -32,6 +38,19 @@ module RSpec::Rails
 
       it "allows passing state args" do
         expect(group.new.render_cell(:dummy, :update, "this")).to eq('Updating this.')
+      end
+
+      # view model
+      # call state
+      it "allows rendering view model" do
+        expect(group.new.cell(:song, "Hangover").show).to eq("Hangover!")
+      end
+
+      # stubbing #cell
+      it do
+        cell = group.new.cell(:song, "Hangover")
+        cell.stub(:model => "Swarming Goblets")
+        expect(cell.show.native.to_s).to eq("Swarming Goblets!")
       end
     end
 
