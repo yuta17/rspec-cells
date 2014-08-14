@@ -50,7 +50,7 @@ module RSpec::Rails
       it do
         cell = group.new.cell(:song, "Hangover")
         cell.stub(:model => "Swarming Goblets")
-        expect(cell.show.native.to_s).to eq("Swarming Goblets!")
+        expect(cell.show).to eq("Swarming Goblets!")
       end
     end
 
