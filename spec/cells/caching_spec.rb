@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Caching' do
+RSpec.describe 'Caching', type: :cell do
   let(:subject) { self.class }
 
   it 'module is included' do
