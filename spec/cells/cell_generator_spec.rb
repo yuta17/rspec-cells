@@ -32,7 +32,7 @@ describe Rspec::Generators::CellGenerator do
 
     it "creates widget spec" do
       test.assert_file "spec/cells/twitter_cell_spec.rb", t("require 'rails_helper'")
-      test.assert_file "spec/cells/twitter_cell_spec.rb", t('Rspec.describe TwitterCell, type: :cell do')
+      test.assert_file "spec/cells/twitter_cell_spec.rb", t('RSpec.describe TwitterCell, type: :cell do')
       test.assert_file "spec/cells/twitter_cell_spec.rb", t('context \'cell rendering\' do')
       test.assert_file "spec/cells/twitter_cell_spec.rb", t('end')
     end
@@ -65,7 +65,7 @@ describe Rspec::Generators::CellGenerator do
 
     it "creates widget spec" do
       test.assert_file "spec/cells/twitter_cell_spec.rb", t("require 'rails_helper'")
-      test.assert_file "spec/cells/twitter_cell_spec.rb", t('Rspec.describe TwitterCell, type: :cell do')
+      test.assert_file "spec/cells/twitter_cell_spec.rb", t('RSpec.describe TwitterCell, type: :cell do')
       test.assert_file 'spec/cells/twitter_cell_spec.rb', t('context \'cell rendering\' do')
       test.assert_file "spec/cells/twitter_cell_spec.rb", t('end')
     end
