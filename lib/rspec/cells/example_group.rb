@@ -5,7 +5,7 @@ module RSpec
       extend ActiveSupport::Concern
 
       include RSpec::Rails::RailsExampleGroup
-      include Cell::TestCase::TestMethods
+      include Cell::Testing
       include ActionController::UrlFor
 
       if defined?(::Webrat)
@@ -74,7 +74,7 @@ module RSpec
         before do # called before every it.
           @routes = ::Rails.application.routes
           ActionController::Base.allow_forgery_protection = false
-          setup # defined in Cell::TestCase.
+          #setup # defined in Cell::TestCase.
         end
 
         # we always render views in rspec-cells, so turn it on.
