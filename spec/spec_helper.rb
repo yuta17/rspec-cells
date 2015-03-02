@@ -6,7 +6,7 @@ require 'action_controller/railtie'
 require 'action_view/railtie'
 require 'rspec-cells'
 require 'rspec/rails'
-require 'cell/base'
+require 'cells'
 require 'rspec/cells'
 
 module RSpecCells

@@ -1,13 +1,13 @@
 require 'spec_helper'
 require 'cells'
 
-class DummyCell < Cell::Base
+class DummyCell < Cell::ViewModel
   def show
     "<p>I'm Dummy.</p>"
   end
 
-  def update(what)
-    "Updating #{what}."
+  def update
+    "Updating #{options[:what]}."
   end
 end
 
@@ -33,7 +33,7 @@ Rspec.describe RSpec::Cells::ExampleGroup do
       end
 
       it "allows passing state args" do
-        expect(group.new.render_cell(:dummy, :update, "this")).to eq('Updating this.')
+        expect(group.new.render_cell(:dummy, :update, what: "this")).to eq('Updating this.')
       end
     end
 
