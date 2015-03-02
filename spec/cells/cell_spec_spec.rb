@@ -17,7 +17,7 @@ class SongCell < Cell::ViewModel
   end
 end
 
-Rspec.describe RSpec::Cells::ExampleGroup do
+RSpec.describe RSpec::Cells::ExampleGroup do
   let(:group) do
     RSpec::Core::ExampleGroup.describe do
       include RSpec::Cells::ExampleGroup
