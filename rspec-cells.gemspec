@@ -21,5 +21,5 @@ Gem::Specification.new do |s|
 
   s.add_runtime_dependency "railties",    ">= 3.0"
   s.add_runtime_dependency 'rspec-rails', '>= 2.14'
-  s.add_runtime_dependency "cells",       ">= 3.4.0"
+  s.add_runtime_dependency "cells",       ">= 3.4.0", "< 4.0"
 end
