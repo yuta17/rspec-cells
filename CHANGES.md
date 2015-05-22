@@ -1,83 +1,92 @@
-h2. 0.2.2
+# 0.3.0
+
+* Only supports Rspec 3 and Cells 4.
+* `#render_cell` is replaced with `cell(:song).call`. See http://trailblazerb.org/gems/cells/testing.html#rspec.
+
+# 0.2.3
+
+* Last release for Cells 3.x.
+
+# 0.2.2
 
 * Allow using `cell.stub(..)` with capybara.
 
-h2. 0.2.1
+# 0.2.1
 
 * Relaxed rspec dependency to >= 2.14.
 * Added `enable_cell_caching!` for specs.
 
-h2. 0.2.0
+# 0.2.0
 
 * rspec-cells depends on rspec >= 2.99 and uses the expect syntax. Thanks to @seuros for his help.
 
-h2. 0.1.12
+# 0.1.12
 
 * Remove `respond_to` tests from generated tests.
 
-h2. 0.1.11
+# 0.1.11
 
 * Make specs work with cell view models.
 
-h2. 0.1.10
+# 0.1.10
 
 * Don't use `have_selector` in generated spec unless Capybara's around.
 * Less restricted dependencies.
 
 
-h2. 0.1.9
+# 0.1.9
 
 * Override #render_state in specs using module in favour of Decorator (broke stubbing).
 
-h2. 0.1.8
+# 0.1.8
 
 * Make @render_state@ return a Capybara string so it gets assertable.
 
-h2. 0.1.7
+# 0.1.7
 
-h2. 0.1.6
+# 0.1.6
 
 * Minor internal fixes.
 
-h2. 0.1.5
+# 0.1.5
 
 * Fixed generated test for namespaced cells.
 
-h2. 0.1.4
+# 0.1.4
 
 * Another maintenance release since we broke the gem with the last release :-)
 
-h2. 0.1.3
+# 0.1.3
 
 * Maintenance release.
 
-h2. 0.1.2
+# 0.1.2
 
 * No more deprecation warnings in Rails 3.2.
 
-h2. 0.1.1
+# 0.1.1
 
 * Fixed indentation in generator. Thanks to Richard Huang [flyerhzm].
 
-h2. 0.1.0
+# 0.1.0
 
 h3. Changes
   * Removed @ViewAssigns@. Maintenance Release.
 
-h2. 0.0.5
+# 0.0.5
 
 h3. Changes
   * Works with RSpec-2.6 now, too.
   * We no longer provide our own Capybara string matchers but delegate to @Capybara.string@. If you ever used the @==@ equality check, this won't work anymore. As a tradeoff, you get all string matchers Capybara comes up with, making rspec-cells forward-compatible.
 
 
-h2. 0.0.4
+# 0.0.4
 
 h3. Changes
   * Use Capybara's string matchers in your specs now (if you like)!
 
 
-h2. 0.0.2
+# 0.0.2
 
 h3. Bugfixes
   * Using a Railtie to correctly load rspec-cells. Caused a dependency problem with capybara before. Thanks to Steve Sloan [CodeMonkeySteve] for fixing and Brandon Dimcheff [bdimcheff] for debugging.
