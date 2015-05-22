@@ -35,4 +35,6 @@ end
 RSpec.configure do |c|
   c.include RSpec::Cells::ExampleGroup, :file_path => /spec\/cells/
   c.include RSpec::Cells::ExampleGroup, :type => :cell
+
+  Cell::Testing.capybara = true if Object.const_defined?(:"Capybara")
 end
