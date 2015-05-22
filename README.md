@@ -4,11 +4,11 @@ _Spec your Cells._
 
 This plugin allows you to spec your cells with RSpec.
 
-Cells is Rails' popular {view components framework}[http://github.com/apotonick/cells].
+Cells is Rails' popular [view components framework(http://github.com/apotonick/cells).
 
 # Installation
 
-This gem runs with **RSpec3 and Rails >= 3.x and Cells 4**. Add it to your app's +Gemfile+.
+This gem runs with **RSpec3 and Rails >= 3.x and Cells 4**. Add it to your app's `Gemfile`.
 
 ```ruby
 group :development, :test do
