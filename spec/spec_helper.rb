@@ -14,3 +14,6 @@ module RSpecCells
     config.secret_token = 'x'*30
   end
 end
+
+
+# require 'capybara/rspec'

@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'cells'
 
 class DummyCell < Cell::ViewModel
   def show
@@ -17,55 +16,18 @@ class SongCell < Cell::ViewModel
   end
 end
 
-RSpec.describe RSpec::Cells::ExampleGroup do
-  let(:group) do
-    RSpec::Core::ExampleGroup.describe do
-      include RSpec::Cells::ExampleGroup
-    end
+describe "Cell::Testing in specs" do
+  include RSpec::Cells::ExampleGroup
 
-    it "adds :type => :cell to the metadata" do
-      expect(group.metadata[:type]).to eq(:cell)
-    end
+  describe "#cell" do
+    it { expect(cell(:dummy).call).to eq("<p>I'm Dummy.</p>") }
 
-    describe "#render_cell" do
-      it "renders a state" do
-        expect(group.new.render_cell(:dummy, :show)).to eq("<p>I'm Dummy.</p>")
-      end
+    # with user options.
+    it { expect(cell(:song, "Don't Have The Cow").call).to eq("Don't Have The Cow!") }
+  end
 
-      it "allows passing state args" do
-        expect(group.new.render_cell(:dummy, :update, what: "this")).to eq('Updating this.')
-      end
-    end
+  describe "Capybara matchers" do
 
-    it "responds to #cell" do
-      expect(group.new.cell(:dummy)).to be_kind_of(DummyCell)
-    end
-
-    # FIXME: could anyone make capybara/rails work in these tests?
-    # it "allows using matchers with #render_state" do
-    #   expect(cell(:dummy).render_state(:show)).to have_selector("p")
-    # end
-
-
-
-  context "as a test writer" do
-    include RSpec::Cells::ExampleGroup
-
-    it "should support _path helpers from the controller" do
-      # We have to stub include so that things determine the route exists.
-      allow(Rails.application.routes.named_routes.helpers).to receive(:include?).and_return(true)
-      expect(@controller).to receive(:test_path).at_least(:once)
-      test_path
-    end
-
-    it "should support polymorphic_path from the controller" do
-      # We have to stub include so that things determine the route exists.
-      allow(Rails.application.routes.named_routes.helpers).to receive(:include?).and_return(true)
-      expect(@controller).to receive(:test_path).at_least(:once)
-      polymorphic_path(:test)
-    end
-
-
-    end
+    it { skip "please make Capybara run with the test suite"; expect(cell(:dummy).call).to have_selector("p") }
   end
 end
