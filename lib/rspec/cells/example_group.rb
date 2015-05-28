@@ -7,7 +7,7 @@ module RSpec
       include Cell::Testing
       include ActionController::UrlFor
 
-      attr_reader :controller, :routes
+      attr_reader :routes
 
       def method_missing(method, *args, &block)
         # Send the route helpers to the application router.
@@ -30,14 +30,25 @@ module RSpec
 
       included do
         metadata[:type] = :cell
+
         before do # called before every it.
           @routes = ::Rails.application.routes
           ActionController::Base.allow_forgery_protection = false
         end
-
-        # we always render views in rspec-cells, so turn it on.
-        subject { controller }
       end
+
+
+      # DISCUSS: in MiniTest, this is done via inheritable_attr. Doesn't work in Rspec, though.
+      module ControllerClass
+        def controller_class
+          @controller_class
+        end
+
+        def controller(name)
+          @controller_class = name
+        end
+      end
+
     end
   end
 end
@@ -47,4 +58,7 @@ RSpec.configure do |c|
   c.include RSpec::Cells::ExampleGroup, :type => :cell
 
   Cell::Testing.capybara = true if Object.const_defined?(:"Capybara")
+
+  # add Example::controller and ::controller_class. for some reasons, this doesn't get imported from Cell::Testing.
+  c.extend RSpec::Cells::ExampleGroup::ControllerClass
 end
