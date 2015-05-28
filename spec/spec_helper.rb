@@ -14,4 +14,4 @@ require 'rspec/rails'
 require 'cells'
 require 'rspec-cells'
 
-# require 'capybara/rspec'
+require 'capybara/rspec'
