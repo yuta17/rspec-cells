@@ -12,7 +12,7 @@ module RSpec
       def method_missing(method, *args, &block)
         # Send the route helpers to the application router.
         if route_defined?(method)
-          @controller.send(method, *args, &block)
+          controller.send(method, *args, &block)
         else
           super
         end
