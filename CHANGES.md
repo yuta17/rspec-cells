@@ -1,3 +1,14 @@
+# 0.3.1
+
+* You can now use `::controller` in your examples to set a controller class, in case your cell requires a controller. This also fixes `#controller` in the example which always returned nil before.
+    ```ruby
+    describe Song::Cell do
+      controller SongsController
+
+      it do
+        controller #=> <#SongsController>
+    ```
+
 # 0.3.0
 
 * Only supports Rspec 3 and Cells 4.
