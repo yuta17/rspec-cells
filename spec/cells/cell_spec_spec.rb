@@ -16,18 +16,12 @@ class SongCell < Cell::ViewModel
   end
 end
 
-describe "Cell::Testing in specs" do
-  include RSpec::Cells::ExampleGroup
+describe "Cell::Testing in specs", type: :cell do
 
   describe "#cell" do
-    it { expect(cell(:dummy).call).to eq("<p>I'm Dummy.</p>") }
+    it { expect(cell(:dummy).call).to have_text("I'm Dummy.") }
 
     # with user options.
-    it { expect(cell(:song, "Don't Have The Cow").call).to eq("Don't Have The Cow!") }
-  end
-
-  describe "Capybara matchers" do
-
-    it { skip "please make Capybara run with the test suite"; expect(cell(:dummy).call).to have_selector("p") }
+    it { expect(cell(:song, "Don't Have The Cow").call).to have_text("Don't Have The Cow!") }
   end
 end

@@ -13,3 +13,5 @@ module RSpec
     end
   end
 end
+
+require "rspec/cells"
