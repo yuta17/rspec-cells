@@ -1,3 +1,7 @@
+# 0.3.2
+
+* Bugfix: In 0.3.1, I included cells specific `#controller` code into every Rspec example. Thanks to @psynix for spotting this within minutes.
+
 # 0.3.1
 
 * You can now use `::controller` in your examples to set a controller class, in case your cell requires a controller. This also fixes `#controller` in the example which always returned nil before.
