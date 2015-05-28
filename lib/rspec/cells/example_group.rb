@@ -35,6 +35,9 @@ module RSpec
           @routes = ::Rails.application.routes
           ActionController::Base.allow_forgery_protection = false
         end
+
+        # add Example::controller and ::controller_class. for some reasons, this doesn't get imported from Cell::Testing.
+        extend RSpec::Cells::ExampleGroup::ControllerClass
       end
 
 
@@ -58,7 +61,4 @@ RSpec.configure do |c|
   c.include RSpec::Cells::ExampleGroup, :type => :cell
 
   Cell::Testing.capybara = true if Object.const_defined?(:"Capybara")
-
-  # add Example::controller and ::controller_class. for some reasons, this doesn't get imported from Cell::Testing.
-  c.extend RSpec::Cells::ExampleGroup::ControllerClass
 end
