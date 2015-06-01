@@ -17,7 +17,6 @@ class SongCell < Cell::ViewModel
 end
 
 describe "Cell::Testing in specs", type: :cell do
-
   describe "#cell" do
     it { expect(cell(:dummy).call).to have_text("I'm Dummy.") }
 

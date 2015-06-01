@@ -36,22 +36,18 @@ module RSpec
           ActionController::Base.allow_forgery_protection = false
         end
 
-        # add Example::controller and ::controller_class. for some reasons, this doesn't get imported from Cell::Testing.
-        extend RSpec::Cells::ExampleGroup::ControllerClass
+        # add Example::controller and ::controller_class.
+        extend RSpec::Cells::ExampleGroup::Controller
+        let (:controller_class) {  }
+        let (:controller) { controller_for(controller_class) }
       end
 
 
-      # DISCUSS: in MiniTest, this is done via inheritable_attr. Doesn't work in Rspec, though.
-      module ControllerClass
-        def controller_class
-          @controller_class
-        end
-
-        def controller(name)
-          @controller_class = name
+      module Controller
+        def controller(name) # DSL for test, e.g. `controller SongsController`.
+          let (:controller_class) { name }
         end
       end
-
     end
   end
 end
