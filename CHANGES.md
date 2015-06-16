@@ -1,3 +1,7 @@
+# 0.3.3
+
+* Maintenance release to make it work with rspec-rails 3.3.
+
 # 0.3.2
 
 * Bugfix: In 0.3.1, I included cells specific `#controller` code into every Rspec example. Thanks to @psynix for spotting this within minutes.
