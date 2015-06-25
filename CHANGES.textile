@@ -1,3 +1,9 @@
+h2. 0.2.4
+
+* Fix Rspec 3.3 fixture support.
+
+h2. 0.2.3
+
 h2. 0.2.2
 
 * Allow using `cell.stub(..)` with capybara.
