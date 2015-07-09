@@ -23,7 +23,9 @@ Note: In case you're still using **Cells 3**, [go here](https://github.com/apoto
 Simply put all your specs in the `spec/cells` directory or add `type: :cell` to the describe block.
 However, let the cell generator do that for you!
 
+```
   rails g rspec:cell comment show
+```
 
 will create an exemplary `spec/cells/comment_cell_spec.rb` for you.
 
@@ -51,6 +53,8 @@ If your cells use helpers with controller dependency, you need to specify a cont
 describe CommentCell do
   controller CommentsController
 ```
+
+Excuse the clumsiness, but this is done wrong in Rails and not Cells' fault.
 
 # Running Specs
 
