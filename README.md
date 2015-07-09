@@ -20,12 +20,12 @@ Note: In case you're still using **Cells 3**, [go here](https://github.com/apoto
 
 # Usage
 
-Simply put all your specs in the <tt>spec/cells</tt> directory or add type: :cell to the describe block.
+Simply put all your specs in the `spec/cells` directory or add `type: :cell` to the describe block.
 However, let the cell generator do that for you!
 
-  rails g rspec:cell blog_post show
+  rails g rspec:cell comment show
 
-will create an exemplary <tt>spec/cells/blog_post_cell_spec.rb</tt> for you.
+will create an exemplary `spec/cells/comment_cell_spec.rb` for you.
 
 
 # API
@@ -33,12 +33,24 @@ will create an exemplary <tt>spec/cells/blog_post_cell_spec.rb</tt> for you.
 To invoke rendering of a cell you use the exact same API as in your application.
 
 ```ruby
-it "renders post" do
-  expect(cell(:posts).call).to have_content "Really Great!"
+describe CommentCell do
+  it "renders comment" do
+    expect(cell(:comment).call).to have_content "Really Great!"
+  end
 end
 ```
 
 As you can see, it is nothing more than using `#cell` or `#concept`, invoke the default state using `#call` (or any other state with `call(:other_state)`) and use Rspecs and Capybara's matchers.
+
+
+## URL helpers
+
+If your cells use helpers with controller dependency, you need to specify a controller to use in your test.
+
+```ruby
+describe CommentCell do
+  controller CommentsController
+```
 
 # Running Specs
 
