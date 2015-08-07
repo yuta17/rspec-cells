@@ -1,3 +1,7 @@
+h2. 0.2.5
+
+* No deprecations in Rails 4.2.
+
 h2. 0.2.4
 
 * Fix Rspec 3.3 fixture support.
