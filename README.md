@@ -68,18 +68,20 @@ rake spec:cells
 
 All the docs about testing can be found on the [Trailblazer project page](http://trailblazerb.org/gems/cells/testing.html).
 
-== Test cells with caching
+# Test cells with caching
 
 By default your code for caching code is not run if you set <tt>ActionController::Base.perform_caching = false</tt>
 That's a reasonable default but you might want to increase coverage by running caching code at least once.
 Here is an example:
 
+```ruby
   describe SomeCell do
     describe 'caching' do
       enable_cell_caching!
       # Code for testing...
     end
   end
+```
 
 
 # Contributors
