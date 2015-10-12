@@ -4,7 +4,7 @@ _Spec your Cells._
 
 This plugin allows you to spec your cells with RSpec.
 
-Cells is Rails' popular [view components framework(http://github.com/apotonick/cells).
+Cells is Rails' popular [view components framework](http://github.com/apotonick/cells).
 
 # Installation
 
