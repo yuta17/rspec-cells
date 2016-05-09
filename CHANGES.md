@@ -1,3 +1,7 @@
+# 0.3.4
+
+* Allow Cells 4.1.
+
 # 0.3.3
 
 * Maintenance release to make it work with rspec-rails 3.3.
