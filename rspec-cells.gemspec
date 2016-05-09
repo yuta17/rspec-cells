@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_runtime_dependency 'rspec-rails', '~> 3.2'
-  s.add_runtime_dependency "cells",       "~> 4.0.0.beta5"
+  s.add_runtime_dependency "cells",       ">= 4.0.0", "< 6.0.0"
 
 
   s.add_development_dependency "capybara" # FIXME: please make test for Capybara run.
