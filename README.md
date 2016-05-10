@@ -66,7 +66,7 @@ rake spec:cells
 
 # More docs
 
-All the docs about testing can be found on the [Trailblazer project page](http://trailblazerb.org/gems/cells/testing.html).
+All the docs about testing can be found on the [Trailblazer project page](http://trailblazer.to/gems/cells/testing.html).
 
 # Test cells with caching
 
